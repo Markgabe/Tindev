@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Main.css';
+import api from '../../services/api';
+import ProfileCard from '../../components/ProfileCard/';
 
-import api from '../config/api';
+import './styles.css';
+import logo from '../../assets/logo.svg';
 
-import logo from '../assets/logo.svg';
-import like from '../assets/like.svg';
-import dislike from '../assets/dislike.svg';
-
-export default function Main({ match, history }) {
+export default function Main({ match }) {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
@@ -49,28 +47,10 @@ export default function Main({ match, history }) {
             { users.length > 0 ? (
             <ul>
                 {users.map(user => (
-                <li key={user._id}>
-                    <img src={user.avatar} alt={user.name}/>
-                    <footer>
-                        <strong>{user.name}</strong>
-                        <p>{user.bio}</p>
-                    </footer>
-
-                    <div className="buttons">
-                        <button onClick={() => handleDislike(user._id)}>
-                            <img src={ dislike } alt="dislike"/>
-                        </button>
-                        <button onClick={() => handleLike(user._id)}>
-                            <img src={ like } alt="like"/>
-                        </button>
-                    </div>
-                </li>
+                <ProfileCard user={user} handleLike={handleLike} handleDislike={handleDislike} />
                 ))}
-            </ul>) : 
-            (
-                <h1 className="empty">Acabou :(</h1>
-            )
-            }
+            </ul>) 
+            : (<h1 className="empty">Acabou :(</h1>)}
         </div>
     );
 }
