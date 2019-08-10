@@ -9,7 +9,7 @@ export default function ProfileCard({ user, handleLike, handleDislike }) {
 
     return(
 
-        <li key={user._id} className="card">
+        <li className="card">
             <img src={user.avatar} alt={user.name}/>
             <footer>
                 <strong>{user.name}</strong>
