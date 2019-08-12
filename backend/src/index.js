@@ -1,17 +1,37 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 const router = require('./routes');
-require('dotenv').config();
 
-const api = express();
+const app = express();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+
+const connectedUsers = {};
+
+io.on('connection', socket => {
+    const { user } = socket.handshake.query;
+    connectedUsers[user] = socket.id;
+
+    socket.on('disconnect', () => {
+        delete connectedUsers[user]
+        console.log("disconnected", socket.id);
+    });
+});
 
 mongoose.connect(process.env.DB_KEY, { useNewUrlParser: true });
 
-api.use(morgan('dev'));
-api.use(cors());
-api.use(express.json());
-api.use(router);
+app.use(morgan('dev'));
+app.use(cors());
+app.use(express.json());
+app.use((req, res, next) => {
+    req.io = io;
+    req.connectedUsers = connectedUsers;
+    return next();
+});
+app.use(router);
 
-api.listen(3333);
+
+http.listen(3333);

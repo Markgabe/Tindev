@@ -10,7 +10,7 @@ export default function ProfileCard({ user, handleLike, handleDislike }) {
     return(
 
         <li className="card">
-            <img src={user.avatar} alt={user.name}/>
+            <img src={user.avatar} alt={user.name} className="avatar-image"/>
             <footer>
                 <strong>{user.name}</strong>
                 <p>{user.bio}</p>
