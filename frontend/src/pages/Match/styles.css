@@ -1,5 +1,6 @@
 .match-page-container {
     display: flex;
+    flex-direction: column;
     width: 100%;
     border: 1px solid red;
     justify-content: center;
@@ -9,5 +10,4 @@
 .match-page-container img {
     width: 120px;
     border: 1px solid red;
-    align-self: flex-start;
 }

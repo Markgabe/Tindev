@@ -5,7 +5,7 @@ import './styles.css';
 import like from '../../assets/like.svg';
 import dislike from '../../assets/dislike.svg';
 
-export default function ProfileCard({ user, handleLike, handleDislike }) {
+export default function ProfileCard({ user, handleAction }) {
 
     return(
 
@@ -17,10 +17,10 @@ export default function ProfileCard({ user, handleLike, handleDislike }) {
             </footer>
 
             <div className="buttons">
-                <button onClick={() => handleDislike(user._id)}>
+                <button onClick={() => handleAction(user._id, 'dislike')}>
                     <img src={ dislike } alt="dislike"/>
                 </button>
-                <button onClick={() => handleLike(user._id)}>
+                <button onClick={() => handleAction(user._id, 'like')}>
                     <img src={ like } alt="like"/>
                 </button>
             </div>
