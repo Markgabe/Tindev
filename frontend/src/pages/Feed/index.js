@@ -9,8 +9,8 @@ import ItsAMatch from '../../components/ItsAMatch';
 import { Header, Logo, Match } from './components';
 
 import './styles.css';
-import logo from '../../assets/logo.svg';
-import matchIcon from '../../assets/chat-red.png';
+import logo from '../../assets/logoWhite.svg';
+import matchIcon from '../../assets/chat-white.png';
 
 
 export default function Main({ match }) {
