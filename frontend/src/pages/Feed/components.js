@@ -22,6 +22,6 @@ export const Match = styled.img`
         transform: translateY(-5px);
         transition: all 0.2s;
     }
-`
+`;
 
-//#FD297B    #FF5864     #FF655B
+// #FD297B    #FF5864     #FF655B

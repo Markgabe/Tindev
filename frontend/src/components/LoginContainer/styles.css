@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: linear-gradient(to top right, #FD297B, #FF5864, #FF655B);
 }
 
 .login-container form {
@@ -15,7 +16,7 @@
 .login-container form input {
     margin-top: 20px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 7px;
     height: 48px;
     padding: 0 20px;
     font-size: 16px;
@@ -28,13 +29,27 @@
 
 .login-container form button {
     margin-top: 10px;
-    border: 0;
-    border-radius: 4px;
+    border: 1px solid #FFFFFF;
+    border-radius: 7px;
     height: 48px;
     font-size: 16px;
-    background: #DF4723;
+    background: transparent;
     font-weight: bold;
     color: #FFF;
     cursor: pointer;
+    transition: all 0.4s;
+}
 
+.login-container form button:hover {
+    background-color: rgb(255, 255, 255);
+    color: #FF5864;
+}
+
+.login-container img:hover {
+    transform: scale(1.7, 1.7) rotate(-360deg);
+}
+
+.login-container img {
+    transition: all 1s;
+    margin-bottom: 100px;
 }
