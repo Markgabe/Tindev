@@ -55,7 +55,6 @@ export default function Main({ match }) {
 								handleAction={handleAction}
 							/>
 						))}
-						)
 					</ul>
 				) : (
 					<h1 className="empty">Acabou :(</h1>
